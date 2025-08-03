@@ -143,6 +143,10 @@
   100% { background-position: 0% 50%; }
 }
 
+.font-inter { font-family: 'Inter', sans-serif; }
+.font-playfair { font-family: 'Playfair Display', serif; }
+.font-pacifico { font-family: 'Pacifico', cursive; }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

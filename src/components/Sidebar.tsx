@@ -1,7 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useLocation } from 'react-router';
-import { Home, User, Mail } from 'lucide-react';
+import { Home, User, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const Sidebar: React.FC = () => {
   const location = useLocation();
@@ -12,23 +13,25 @@ export const Sidebar: React.FC = () => {
     { name: 'Contact', href: '/contact', icon: Mail },
   ];
 
+  const [collapsed, setCollapsed] = useState(false);
+  const toggleCollapse = () => setCollapsed(prev => !prev);
+
   const isActivePage = (href: string) => location.pathname === href;
 
   return (
     <motion.aside
       initial={{ x: -300 }}
       animate={{ x: 0 }}
-      className="w-64 h-screen bg-surface border-r border-border sticky top-16"
+      className={`${collapsed ? 'w-20' : 'w-64'} h-screen bg-surface border-r border-border sticky top-16 transition-all duration-300`}
     >
       <div className="p-6">
-        <div className="flex items-center space-x-3 mb-8">
-          {/* <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-            <Palette className="w-5 h-5 text-primary-foreground" />
-          </div>
-          <div>
-            <h2 className="font-semibold text-foreground">Navigation</h2>
-            <p className="text-sm text-muted-foreground">Dark theme sidebar</p>
-          </div> */}
+        <div className="flex justify-end mb-6">
+          <button
+            onClick={toggleCollapse}
+            className="p-2 rounded-lg hover:bg-surface-variant transition-colors"
+          >
+            {collapsed ? <ChevronRight className="w-5 h-5" /> : <ChevronLeft className="w-5 h-5" />}
+          </button>
         </div>
 
         <nav className="space-y-2">
@@ -46,16 +49,16 @@ export const Sidebar: React.FC = () => {
                 <Link
                   to={item.href}
                   className={`
-                    flex items-center space-x-3 px-3 py-3 rounded-lg transition-all duration-200
+                    flex items-center py-3 rounded-lg transition-all duration-200
+                    ${collapsed ? 'justify-center px-0' : 'space-x-3 px-3'}
                     ${isActive
                       ? 'bg-primary text-primary-foreground shadow-md'
-                      : 'text-foreground hover:bg-surface-variant hover:text-primary'
-                    }
+                      : 'text-foreground hover:bg-surface-variant hover:text-primary'}
                   `}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium">{item.name}</span>
-                  {isActive && (
+                  <Icon className={`${collapsed ? 'w-5 h-5' : 'w-5 h-5'}`} />
+                  {!collapsed && <span className="font-medium">{item.name}</span>}
+                  {isActive && !collapsed && (
                     <motion.div
                       layoutId="sidebarActive"
                       className="ml-auto w-2 h-2 bg-primary-foreground rounded-full"
