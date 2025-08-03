@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Palette, Layers, Zap, Code, Sparkles, Heart } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import StackIcon from "tech-stack-icons";
 
 export const About: React.FC = () => {
   const { themeConfig } = useTheme();
@@ -49,6 +50,25 @@ export const About: React.FC = () => {
       description: 'Playful and colorful with rounded elements and bouncy animations.',
       features: ['Playful typography', 'Card-based grid', 'Bounce animations', 'Vibrant colors']
     }
+  ];
+
+  const techStack = [
+    {
+      name: 'React',
+      icon: <StackIcon name="react" />
+    },
+    {
+      name: 'TypeScript',
+      icon: <StackIcon name="typescript" />
+    },
+    {
+      name: 'Tailwind CSS',
+      icon: <StackIcon name="tailwindcss" />
+    },
+    {
+      name: 'Framer Motion',
+      icon: <StackIcon name="framer" />
+    },
   ];
 
   return (
@@ -232,9 +252,9 @@ export const About: React.FC = () => {
           transition={{ duration: 0.5, delay: 2.4 }}
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map((tech, index) => (
+            {techStack.map((tech, index) => (
               <motion.div
-                key={tech}
+                key={tech.name}
                 className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -243,10 +263,10 @@ export const About: React.FC = () => {
               >
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <span className="text-primary font-bold text-lg">
-                    {tech.charAt(0)}
+                    {tech.icon}
                   </span>
                 </div>
-                <p className="font-medium text-foreground">{tech}</p>
+                <p className="font-medium text-foreground">{tech.name}</p>
               </motion.div>
             ))}
           </div>
