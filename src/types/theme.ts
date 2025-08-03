@@ -35,7 +35,7 @@ export const THEMES: Record<ThemeType, ThemeConfig> = {
     type: 'dark',
     displayName: 'Dark Elegant',
     description: 'Sophisticated, bold, high contrast',
-    className: 'theme-dark',
+    className: 'dark',
     fontFamily: 'font-playfair',
     layout: 'sidebar',
     animations: {
@@ -49,7 +49,7 @@ export const THEMES: Record<ThemeType, ThemeConfig> = {
     type: 'vibrant',
     displayName: 'Vibrant Fun',
     description: 'Playful, colorful, energetic',
-    className: 'theme-vibrant',
+    className: 'vibrant',
     fontFamily: 'font-pacifico',
     layout: 'grid',
     animations: {

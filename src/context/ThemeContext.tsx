@@ -31,7 +31,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     const themeConfig = THEMES[currentTheme];
     const { className } = themeConfig;
     
-    document.documentElement.classList.remove('theme-dark', 'theme-vibrant');
+    document.documentElement.classList.remove('dark', 'vibrant');
     
     if (className) {
       document.documentElement.classList.add(className);
