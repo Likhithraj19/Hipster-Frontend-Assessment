@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageSquare, Send, CheckCircle, Github, ExternalLink } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { Link } from 'react-router';
 
 export const Contact: React.FC = () => {
   const { themeConfig } = useTheme();
@@ -33,14 +34,14 @@ export const Contact: React.FC = () => {
       icon: Mail,
       title: 'Email',
       description: 'Send us an email',
-      value: 'hello@themeswitcher.dev',
+      value: 'mailto:likhithrj@gmail.com',
       color: 'text-primary'
     },
     {
       icon: Github,
       title: 'GitHub',
       description: 'View the source code',
-      value: 'github.com/themeswitcher',
+      value: 'https://github.com/Likhithraj19',
       color: 'text-foreground'
     },
     {
@@ -275,9 +276,9 @@ export const Contact: React.FC = () => {
                       <p className="text-muted-foreground mb-2">
                         {method.description}
                       </p>
-                      <p className="text-primary font-medium">
+                      <Link to={method.value} className="text-primary font-medium">
                         {method.value}
-                      </p>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -285,29 +286,6 @@ export const Contact: React.FC = () => {
             })}
           </div>
 
-          <motion.div
-            className="mt-12 bg-surface-variant border border-border rounded-lg p-6"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 1.5 }}
-          >
-            <h3 className="font-semibold text-foreground mb-3">
-              Current Theme: {themeConfig.displayName}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              {themeConfig.description}
-            </p>
-            <div className="grid grid-cols-2 gap-4 text-xs">
-              <div>
-                <span className="text-muted-foreground">Layout:</span>
-                <span className="ml-2 text-primary capitalize">{themeConfig.layout}</span>
-              </div>
-              <div>
-                <span className="text-muted-foreground">Animation:</span>
-                <span className="ml-2 text-primary capitalize">{themeConfig.animations.type}</span>
-              </div>
-            </div>
-          </motion.div>
         </motion.section>
       </div>
     </div>
