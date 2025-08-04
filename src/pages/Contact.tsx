@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Send, CheckCircle, Github, ExternalLink } from 'lucide-react';
+import { Mail, MessageSquare, Send, CheckCircle, Github, Linkedin } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { Link } from 'react-router';
 
@@ -45,11 +45,11 @@ export const Contact: React.FC = () => {
       color: 'text-foreground'
     },
     {
-      icon: ExternalLink,
-      title: 'Demo',
-      description: 'Live demonstration',
-      value: 'themeswitcher.demo',
-      color: 'text-accent'
+      icon: Linkedin,
+      title: 'LinkedIn',
+      description: 'Connect with me',
+      value: 'https://www.linkedin.com/in/likhith-raj-7398a9228/',
+      color: 'text-foreground'
     }
   ];
 
