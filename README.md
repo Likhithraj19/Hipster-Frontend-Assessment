@@ -21,6 +21,12 @@ Welcome to ThemeSwitcher, a modern React application designed to showcase a dyna
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Linting**: [ESLint](https://eslint.org/)
 
+## 🔗 Live Demo
+
+Check out the deployed app here:  
+👉 [https://hipster-frontend-assessment.vercel.app/](https://hipster-frontend-assessment.vercel.app/)
+
+
 ## 🚀 Getting Started
 
 To get a local copy up and running, follow these simple steps.
